@@ -1,10 +1,16 @@
 require('dotenv').config()
+
 const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
+const arrayPermutation = require('./arrayPermutation');
 const path = require('path');
+
+const app = express();
 const port = process.env.PORT;
 
+app.use(express.urlencoded({
+    extended: true
+  }));
+app.use(express.json());
 
 if(process.env.NODE_ENV === 'production') {  
     app.use(express.static(path.join(__dirname, 'client/build')));  
@@ -18,8 +24,9 @@ app.get('*', (req, res) => {
 })
 
 app.post('*', (req, res)=>{
-    console.log(req)
-    res.send(JSON.stringify({list:[1,2,3,4,5,6]}))
+    result = arrayPermutation.permutation(req.body.number);
+    console.log(result)
+    res.send(JSON.stringify({list:result}))
 })
 
 app.listen(port, (req, res) => {  

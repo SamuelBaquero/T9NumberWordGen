@@ -27,7 +27,7 @@ class App extends Component{
   }
   
   getList = ()=>{
-    var data = {number: 23}
+    var data = {number: 36472867}
 
     var init = {
       method:'POST',
@@ -44,7 +44,7 @@ class App extends Component{
     fetch(request)
       .then(res => res.json())
       .catch(error => console.error(error))
-      .then(response => this.setState({list:response.list}))
+      .then(response => {console.log(response); this.setState({list:response.list})})
   }
 }
 export default App;
