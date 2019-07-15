@@ -25,7 +25,6 @@ app.get('*', (req, res) => {
 
 app.post('*', (req, res)=>{
     result = arrayPermutation.permutation(req.body.number);
-    console.log(result)
     res.send(JSON.stringify({list:result}))
 })
 

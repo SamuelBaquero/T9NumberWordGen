@@ -1,0 +1,15 @@
+.errorDisplay{
+    font-weight: 500;
+}
+
+.error{
+    padding-left: 1vw;
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+
+.warning{
+    padding-left: 1vw;
+    color: #9F6000;
+    background-color: #FEEFB3;
+}

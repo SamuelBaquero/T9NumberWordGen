@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
+
+import Input from './components/Input';
+import ListDisplay from './components/ListDisplay';
+
 import './App.css';
 
 class App extends Component{
@@ -7,27 +11,25 @@ class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      list: []
+      list: [],
+      currentValue: 0,
     }
-    this.getList();
   }
 
   render(){
     return (
       <div className="App">
-        {this.renderList()}
+        <div className="header">
+          <h1 className="header-text">T9 Word Generator</h1> 
+        </div>
+        <Input getList={this.getList}/>
+        <ListDisplay list={this.state.list}/>
       </div>
     );
   }
-
-  renderList = ()=>{
-    return this.state.list.map((l, i)=>{
-      return <div key={i}>{l + ' ' + i}</div>
-    })
-  }
   
-  getList = ()=>{
-    var data = {number: 36472867}
+  getList = (value)=>{
+    var data = {number: value}
 
     var init = {
       method:'POST',
@@ -44,7 +46,7 @@ class App extends Component{
     fetch(request)
       .then(res => res.json())
       .catch(error => console.error(error))
-      .then(response => {console.log(response); this.setState({list:response.list})})
+      .then(response => {this.setState({list:response.list, currentValue:value})})
   }
 }
 export default App;

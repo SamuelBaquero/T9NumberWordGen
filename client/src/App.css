@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+
+.header{
+  width: 100vw;
+  margin : 0.2vw;
+}
+

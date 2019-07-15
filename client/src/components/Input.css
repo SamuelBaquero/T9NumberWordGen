@@ -1,0 +1,18 @@
+.input{
+    padding: 1vh 10vw;
+    text-align: left;
+}
+
+.text-box{
+    width: 85%;
+    min-width: 100px;
+    height: 3vh;
+    min-height: 25px;
+}
+
+.start-button{
+    width: 14%;
+    min-width: 25px;
+    height: 3.72vh;
+    min-height: 25px;
+}
